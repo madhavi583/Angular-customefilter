@@ -1,0 +1,51 @@
+<!doctype html>
+<html ng-app="myApp">
+<head>
+<title>Welcome To AngularJS! CUSTOM  directive</title>
+<!--<script src="/angularanother/angular.min.js"></script>-->
+<!--<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js">
+</script>-->
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+</head>
+<body ng-controller="myCOntroller">
+<!--<div class=""my-first-script> </div>-->
+<div my-first-script></div>
+<div my-first-script> </div>
+<div my-first-script> </div>
+<div  my-first-script> </div>
+<script>
+var app=angular.module('myApp',[]);
+app.directive('myFirstScript', function(){
+    // function linkFunction(scope,elem,attrs){
+    //     elem.bind('click', function(){
+    //         console.log(elem[0]);
+    //         alert(elem.innerHTML);
+    //     });
+
+    // }
+     function linkFunction($scope,elem,attrs){
+         $scope.name=" prema ";
+         $scope.changeName=function(newName){
+             
+        //  $scope.name=newName;
+           $scope.name= $scope.controllerProt;
+        // console.log( $scope.name);
+     }
+     }
+return {
+    // template:'hello prema pathapati',
+    restrict:'EA',
+    scope:true,
+     link: linkFunction,
+    template:'<span ng-clcik="changeName()">Current text :{{name}} </span>'
+}
+// return linkFunction;
+});
+app.controller('myCOntroller',function($scope){
+    $scope.controllerProt="hello olivetechonaligie";
+//$scope.number=number;
+});
+</script>
+ 
+</body>
+</html>
